@@ -14,7 +14,7 @@ const titleClickHandler = function (event) {
     console.log('clickedElement (with plus): ' + clickedElement);
 
     /* remove class 'active' from all articles */
-    const activeArticles = document.querySelectorAll('.article a.active');
+    const activeArticles = document.querySelectorAll('article.active');
     for (let activeArticle of activeArticles) {
         activeArticle.classList.remove('active');
     }
@@ -31,11 +31,6 @@ const titleClickHandler = function (event) {
     targetArticle.classList.add('active')
 }
 
-const links = document.querySelectorAll('.titles a');
-
-for (let link of links) {
-    link.addEventListener('click', titleClickHandler);
-}
 const optArticleSelector = '.post',
     optTitleSelector = '.post-title',
     optTitleListSelector = '.titles';
@@ -49,24 +44,25 @@ function generateTitleLinks() {
 
     /* for each article */
     const articles = document.querySelectorAll('.post')
-    for(let article of articles){
-        article.classList.remove('post')
+    for (let article of articles) {
+
+        /* get the article id */
+        const articleId = article.getAttribute('id')
+        console.log(articleId)
+
+        /* find the title element */
+        /* get the title from the title element */
+        /* create HTML of the link */
+        const articleTitle = article.querySelector(optTitleSelector).innerHTML;
+        const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
+        /* insert link into titleList */
+        titleList.innerHTML += linkHTML;
     }
 
-    /* get the article id */
-    const articleId = clickedElement.getAttribute('id')
-    console.log(articleId)
+    const links = document.querySelectorAll('.titles a');
 
-    /* find the title element */
-    const articleTitle = article.querySelector(optTitleSelector).innerHTML;
-    const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
+    for (let link of links) {
+        link.addEventListener('click', titleClickHandler);
+    }
 
-    /* get the title from the title element */
-
-    /* create HTML of the link */
-
-    /* insert link into titleList */
-
-}
-generateTitleLinks();
-
+    generateTitleLinks()
