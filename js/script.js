@@ -6,6 +6,7 @@ const titleClickHandler = function (event) {
     const activeLinks = document.querySelectorAll('.titles a.active');
     for (let activeLink of activeLinks) {
         activeLink.classList.remove('active');
+        console.log(link)
     }
 
     /* add class 'active' to the clicked link */
@@ -58,7 +59,6 @@ function generateTitleLinks() {
         /* insert link into titleList */
         titleList.innerHTML += linkHTML;
     }
-
     const links = document.querySelectorAll('.titles a');
 
     for (let link of links) {
