@@ -263,8 +263,11 @@
 
 
   <script id="template-tagCloud-link" type="text/x-handlebars-template">
-    <li><a href="#{{ id }}"><span>{{ title }}</span></a></li>
+    {{#each tags}}
+    <li class="bbb"><a href="#tag-{{tag}}" class="{{className}}">{{ tag }} ({{count}})</a></li>
+    {{/each}}
   </script>
+
 
   <script id="template-authorCloud-link" type="text/x-handlebars-template">
     <li><a href="#{{ id }}"><span>{{ title }}</span></a></li>
