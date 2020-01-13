@@ -175,6 +175,7 @@ function generateTags() {
             }
 
             const linkHTML = templates.tagLink(linkHTMLData);
+
             /* add generated code to html variable */
             html += linkHTML;
 
